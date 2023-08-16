@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './index.css';
 import NavBar from './components/NavBar';
 import { Layout, Menu, Space, Button } from 'antd';
+
 const { Header, Content, Footer, Sider } = Layout;
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
   
   const contentStyle = {
     textAlign: 'center',
-    minHeight: 120,
+    height: '90vh',
     lineHeight: '120px',
     color: '#fff',
     backgroundColor: '#108ee9',
@@ -35,15 +36,16 @@ function App() {
     <div className="App">
       <Space direction="vertical" style={{ width: '100%' }} size={[0, 0]}>
         <Header style={headerStyle}>
-
+         <h1>LOGO</h1> 
         </Header>
         <Layout hasSider>
           <NavBar />
-          <Content style={contentStyle}>Content</Content>
+          <Content style={contentStyle}>
+
+          </Content>
         </Layout>
         <Footer style={footerStyle}>Footer</Footer>
       </Space>
-      <NavBar></NavBar>
     </div>
   );
 }

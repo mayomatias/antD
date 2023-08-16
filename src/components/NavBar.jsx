@@ -15,28 +15,9 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from '@ant-design/icons';
-
+import { Link } from 'react-router-dom';
 const { Header, Content, Footer, Sider } = Layout;
 
-
-
-
-const items = [
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  BarChartOutlined,
-  CloudOutlined,
-  AppstoreOutlined,
-  TeamOutlined,
-  ShopOutlined,
-  DesktopOutlined,
-  FileOutlined,
-].map((icon, index) => ({
-  key: String(index + 1),
-  icon: React.createElement(icon),
-  label: `nav ${index + 1}`,
-}));
 
 const siderStyle = {
   overflow: 'auto',
@@ -53,24 +34,34 @@ function NavBar() {
 
   return (
 
-          <Sider style={siderStyle} trigger={null} collapsible collapsed={collapsed}>
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} items={items} />
-            <div className="demo-logo-vertical" />
-            <div className='collapseBtnStyleContainer'>
-            <Space align="baseline">
-              <Button
-                type="text"
-                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-                onClick={() => setCollapsed(!collapsed)}
-                style={{
-                  color: '#fff',
-                  width: '%100'
-                }}
-              />
-              </Space>
-            </div>
-
-          </Sider>
+    <Sider style={siderStyle} trigger={null} collapsible collapsed={collapsed}>
+      <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} items={
+        [{
+          key: '1',
+          icon: <UserOutlined />,
+          label: 'User',
+        },{
+          key: '2',
+          icon: <CloudOutlined />,
+          label: 'Storage',
+        },
+        ]
+      } />
+      <div className="demo-logo-vertical" />
+      <div className='collapseBtnStyleContainer'>
+        <Space align="baseline">
+          <Button
+            type="text"
+            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+            onClick={() => setCollapsed(!collapsed)}
+            style={{
+              color: '#fff',
+              width: '%100'
+            }}
+          />
+        </Space>
+      </div>
+    </Sider>
 
   );
 }
